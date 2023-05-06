@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isWinner = false;
     int imageClicked = -1;
     int player = 1; //player1 is cross
-    int [][]winningStates = {{0,1,2},{3,4,5},{6,7,8}};
+    int [][]winningStates = {{0,1,2},{3,4,5},{6,7,8},{0,3,6},{1,4,7},{2,5,8},{0,4,8},{2,4,6}};
     int []gameState = {-1, -1, -1, -1, -1, -1, -1, -1, -1};
     public void load(View view){
         ImageView v = (ImageView) view;
@@ -38,22 +38,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "Winner is " + (player == 0 ? 1 : 0), Toast.LENGTH_SHORT).show();
                     textview.setText("Winner is " + (player == 0 ? 1 : 0));
                     isWinner = true;
+                    break;
                 }
-                if (gameState[winningStates[0][i]] == gameState[winningStates[1][i]] && gameState[winningStates[1][i]] == gameState[winningStates[2][i]] && gameState[winningStates[0][i]] > -1) {
-                    Toast.makeText(this, "Winner is " + (player == 0 ? 1 : 0), Toast.LENGTH_SHORT).show();
-                    textview.setText("Winner is " + (player == 0 ? 1 : 0));
-                    isWinner = true;
-                }
-            }
-            if (gameState[winningStates[0][0]] == gameState[winningStates[1][1]] && gameState[winningStates[1][1]] == gameState[winningStates[2][2]] && gameState[winningStates[0][0]] > -1) {
-                Toast.makeText(this, "Winner is " + (player == 0 ? 1 : 0), Toast.LENGTH_SHORT).show();
-                textview.setText("Winner is " + (player == 0 ? 1 : 0));
-                isWinner = true;
-            }
-            if (gameState[winningStates[0][2]] == gameState[winningStates[1][1]] && gameState[winningStates[1][1]] == gameState[winningStates[2][0]] && gameState[winningStates[0][2]] > -1) {
-                Toast.makeText(this, "Winner is " + (player == 0 ? 1 : 0), Toast.LENGTH_SHORT).show();
-                textview.setText("Winner is " + (player == 0 ? 1 : 0));
-                isWinner = true;
             }
         }
     }
